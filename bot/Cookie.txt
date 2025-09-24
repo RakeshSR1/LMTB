@@ -1,0 +1,10 @@
+import os
+import subprocess
+import platform
+
+yt_dlp_bin = "yt-dlp.exe" if platform.system() == "Windows" else "yt-dlp"
+YT_DLP_PATH = os.path.join(os.path.dirname(__file__), yt_dlp_bin)
+COOKIES_FILE = os.path.join(os.path.dirname(__file__), "cookies.txt")
+
+video_url = "https://example.com/video"
+subprocess.run([YT_DLP_PATH, "--cookies", COOKIES_FILE, video_url])
